@@ -25,21 +25,13 @@ namespace SecurityTestApp.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddAuthentication("Basic")
+                .AddOAuth()
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            //app.Use(async (context, next) =>
-            //{
-            //    if (context.Request.Path.HasValue && !context.Request.Path.Value.StartsWith("/api", StringComparison.OrdinalIgnoreCase))
-            //    {
-            //        context.Request.Path = new PathString("/");
-            //    }
-
-            //    await next();
-            //});
-
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
